@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  flask-app:
+    build: ./app
+    ports:
+      - "5555:5000"
+    environment:
+      - MINIO_URL=minio:9500
+      - MINIO_ROOT_USER=valter123
+      - MINIO_ROOT_PASSWORD=var12345
+
+  minio:
+    image: minio/minio
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9500:9500"
+    environment:
+      MINIO_ROOT_USER: valter123
+      MINIO_ROOT_PASSWORD: var12345
+    command: server --address :9500 /data
+
+volumes:
+  minio_data:
+
+

@@ -1,0 +1,2 @@
+ACCESS_KEY = 'valter123'  
+SECRET_KEY = 'var12345' 
