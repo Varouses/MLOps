@@ -1,0 +1,5 @@
+outs:
+- md5: 7abfa1b4ba1f93b6ec74ca8cbb47b5f1
+  size: 146
+  hash: md5
+  path: Default linear regression 1.pkl
