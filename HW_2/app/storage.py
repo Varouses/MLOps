@@ -121,6 +121,13 @@ class ModelStorage(object):
         self.minio_client.fput_object("datasets", f'{model_name}_features.json', features_path)
         self.minio_client.fput_object("datasets", f'{model_name}_target.json', target_path)
 
+        # Отслеживание с помощью DVC
+        os.system(f"dvc add {features_path}")
+        os.system(f"dvc add {target_path}")
+
+        os.system("git add .dvc/config")
+        os.system("git commit -m 'Add dataset files'")
+
         # Сохранение модели в Minio
         self.save_model(model_name, model)
 

@@ -13,7 +13,8 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 api = Api(app, version='2.0', title='MlOps HW_2', doc='/apidocs/')
 
 
-minio_url = 'minio:9500'
+# minio_url = 'minio:9500' # Путь, когда оборачиваем сервис в Docker-образ
+minio_url = '127.0.0.1:9500'  
 access_key = creds.ACCESS_KEY  
 secret_key = creds.SECRET_KEY 
 minio_client = Minio(minio_url, access_key=access_key, secret_key=secret_key, secure=False)
